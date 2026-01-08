@@ -48,4 +48,13 @@ view: gold_fact_orders {
   measure: count {
     type: count
   }
+  measure: sum_unit_price {
+    type: sum
+    sql: ${unit_price} ;;
+  }
+  measure: percentile_unit_price {
+    type: number
+    value_format_name: percent_2
+    sql: ${sum_unit_price}/ NULLIF(${unit_price},0) ;;
+  }
 }
