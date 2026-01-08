@@ -45,9 +45,7 @@ view: gold_fact_orders {
     type: number
     sql: ${TABLE}."UnitPrice" ;;
   }
-  measure: count {
-    type: count
-  }
+
   measure: sum_unit_price {
     type: sum
     sql: ${unit_price} ;;
