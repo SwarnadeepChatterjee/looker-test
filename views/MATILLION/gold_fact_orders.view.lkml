@@ -55,4 +55,10 @@ view: gold_fact_orders {
     value_format_name: percent_2
     sql: ${sum_unit_price}/ NULLIF(${unit_price},0) ;;
   }
+
+  measure: test_unit_price{
+   type:  number
+    value_format_name: percent_2
+    sql: ${sum_unit_price}/ ${TABLE}."UnitPrice" ;;
+  }
 }
