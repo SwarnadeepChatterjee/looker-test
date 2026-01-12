@@ -56,9 +56,13 @@ view: gold_fact_orders {
     sql: ${sum_unit_price}/ NULLIF(${unit_price},0) ;;
   }
 
-  measure: test_unit_price{
-   type:  number
-    value_format_name: percent_2
-    sql: ${sum_unit_price}/ NULLIF(${TABLE}."UnitPrice",0) ;;
+  dimension: test_unit_price {
+    type: string
+    sql:
+    CAST(${TABLE}."UnitPrice" AS VARCHAR)
+    || '_' ||
+    CAST(${order_id} AS VARCHAR)
+  ;;
   }
+
 }
