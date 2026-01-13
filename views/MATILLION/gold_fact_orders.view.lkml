@@ -48,7 +48,7 @@ view: gold_fact_orders {
 
   measure: sum_unit_price {
     type: sum
-    sql: ${unit_price} ;;
+    sql: \${unit_price} ;;
   }
   measure: percentile_unit_price {
     type: number
